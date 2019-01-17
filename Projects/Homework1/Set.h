@@ -3,6 +3,10 @@
 
 #include <string>
 
+typedef
+const int DEFAULT_MAX_ITEMS = 250;
+
+
 class Set
 {
 public:
@@ -36,8 +40,8 @@ public:
     // Exchange the contents of this set with the other one.
     
 private:
-    std::string m_set;
-    
+    std::string m_set[DEFAULT_MAX_ITEMS];
+    int m_numOfItems;
 };
 
 #endif /* Set_h */

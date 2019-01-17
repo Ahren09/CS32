@@ -6,6 +6,8 @@ History::History(int nRows, int nCols)
 {
     m_nRows=nRows;
     m_nCols=nCols;
+    
+    //We must check nRows and nCols here?
     for(int i=0;i<m_nRows;i++)
     {
         for(int j=0;j<m_nCols;j++)
