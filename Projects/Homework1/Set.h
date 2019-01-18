@@ -3,9 +3,8 @@
 
 #include <string>
 
-
 const int DEFAULT_MAX_ITEMS = 250;
-using ItemType=std::string;
+using ItemType=unsigned long;
 
 class Set
 {
@@ -42,7 +41,7 @@ public:
     //int dump(const ItemType& value) const;
     
 private:
-    std::string m_set[DEFAULT_MAX_ITEMS];
+    ItemType m_set[DEFAULT_MAX_ITEMS];
     int m_numOfItems;
     bool move(int i, bool moveForward);
 };

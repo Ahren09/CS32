@@ -1,7 +1,5 @@
 #include "Set.h"
 
-using ItemType=std::string;
-
 Set::Set()
 {
     m_numOfItems=0;
