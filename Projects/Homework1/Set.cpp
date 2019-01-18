@@ -139,25 +139,47 @@ bool Set::insert(const ItemType& value)
 
 bool Set::erase(const ItemType& value)
 {
-    if(empty()||value>m_set[m_numOfItems])
+    if(empty()||value>m_set[m_numOfItems-1])
         return false;
     
     int i=0;
     while(i<m_numOfItems)
+    {
         if(m_set[i]<value)
             i++;
-    
-    if(m_set[i]==value)
-    {
-        move(i,false);
-        m_numOfItems--;
-        return true;
+        else if(m_set[i]==value)
+        {
+            move(i,false);
+            m_numOfItems--;
+            return true;
+        }
+        else return false;
     }
+    
     return false;
     
     
     
 }
+
+// Return true if the value is in the set, otherwise false.
+bool Set::contains(const ItemType& value)
+{
+    if(empty())
+        return false;
+    int i=0;
+    while(i<m_numOfItems)
+    {
+        if(m_set[i]<value)
+            i++;
+        else if(m_set[i]==value)
+            return true;
+        else return false;
+    }
+    return false;
+    
+}
+
 
 // If 0 <= i < size(), copy into value the item in the set that is
 // strictly greater than exactly i items in the set and return true.
@@ -215,7 +237,7 @@ bool Set::move(int i,bool moveForward)
     }
     else
     {
-        if(i==0)
+        if(m_numOfItems==0)
             return false;
         
         //the i th item is destroyed
