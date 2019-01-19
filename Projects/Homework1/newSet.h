@@ -1,5 +1,5 @@
-#ifndef Set_h
-#define Set_h
+#ifndef newSet_h
+#define newSet_h
 
 #include <string>
 using ItemType=std::string;
@@ -9,6 +9,16 @@ class Set
 {
 public:
     Set();         // Create an empty set (i.e., one with no items).
+    
+    //Create a set with size of "numOfItems"
+    Set(int maxItems);
+    
+    ~Set();
+    
+    Set(const Set& src);
+    
+    Set &operator=(const Set& src);
+    
     
     bool empty() const;  // Return true if the set is empty, otherwise false.
     
@@ -40,8 +50,9 @@ public:
     //int dump(const ItemType& value) const;
     
 private:
-    ItemType m_set[DEFAULT_MAX_ITEMS];
+    ItemType* m_set;
     int m_numOfItems;
+    int MAX_ITEMS;
     bool move(int i, bool moveForward);
 };
 

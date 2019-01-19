@@ -1,8 +1,45 @@
-#include "Set.h"
+#include "newSet.h"
 
 Set::Set()
+:m_numOfItems(0),MAX_ITEMS(DEFAULT_MAX_ITEMS)
 {
-    m_numOfItems=0;
+    m_set=new ItemType[MAX_ITEMS];
+}
+
+//Create a set with size of "max_Items"
+Set::Set(int max_Items)
+:m_numOfItems(0),MAX_ITEMS(max_Items)
+{
+    m_set=new ItemType[max_Items];
+}
+
+Set::~Set()
+{
+    delete [] m_set;
+}
+
+Set::Set(const Set& src)
+{
+    MAX_ITEMS=src.MAX_ITEMS;
+    m_set=new ItemType[MAX_ITEMS];
+    m_numOfItems=src.m_numOfItems;
+    for(int i=0;i<m_numOfItems;i++)
+    {
+        m_set[i]=src.m_set[i];
+    }
+}
+
+Set& Set::operator=(const Set& src)
+{
+    delete [] m_set;
+    MAX_ITEMS=src.MAX_ITEMS;
+    m_set=new ItemType[MAX_ITEMS];
+    m_numOfItems=src.m_numOfItems;
+    for(int i=0;i<m_numOfItems;i++)
+    {
+        m_set[i]=src.m_set[i];
+    }
+    return *this;
 }
 
 bool Set::empty() const
@@ -93,7 +130,6 @@ bool Set::insert(const ItemType& value)
         //inserted element is the greatest
         else
         {
-            
             m_set[m_numOfItems]=value;
         }
         m_numOfItems++;
