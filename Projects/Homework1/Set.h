@@ -26,7 +26,7 @@ public:
     // value was removed; otherwise, leave the set unchanged and
     // return false.
     
-    bool contains(const ItemType& value);
+    bool contains(const ItemType& value) const;
     // Return true if the value is in the set, otherwise false.
     
     bool get(int i, ItemType& value) const;
@@ -36,8 +36,6 @@ public:
     
     void swap(Set& other);
     // Exchange the contents of this set with the other one.
-    
-    //int dump(const ItemType& value) const;
     
 private:
     ItemType m_set[DEFAULT_MAX_ITEMS];

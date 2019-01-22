@@ -161,7 +161,7 @@ bool Set::erase(const ItemType& value)
 }
 
 // Return true if the value is in the set, otherwise false.
-bool Set::contains(const ItemType& value)
+bool Set::contains(const ItemType& value) const
 {
     if(empty())
         return false;
@@ -202,11 +202,31 @@ bool Set::get(int i, ItemType& value) const
 // Exchange the contents of this set with the other one.
 void Set::swap(Set& other)
 {
-    for(int i=0;i<m_numOfItems||i<other.m_numOfItems;i++)
+    int i=0;
+    while(i<m_numOfItems && i<other.m_numOfItems)
     {
         ItemType temp=m_set[i];
         m_set[i]=other.m_set[i];
         other.m_set[i]=temp;
+        i++;
+    }
+    
+    if(m_numOfItems<other.m_numOfItems)
+    {
+        while(i<other.m_numOfItems)
+        {
+            m_set[i]=other.m_set[i];
+            i++;
+        }
+    }
+    
+    else if(m_numOfItems>other.m_numOfItems)
+    {
+        while(i<m_numOfItems)
+        {
+            m_set[i]=other.m_set[i];
+            i++;
+        }
     }
     int temp=m_numOfItems;
     m_numOfItems=other.m_numOfItems;

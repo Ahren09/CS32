@@ -96,7 +96,7 @@ ELSE
 bool Set::insert(const ItemType& value)
 {
     //set is full, element cannot be inserted
-    if(m_numOfItems==DEFAULT_MAX_ITEMS)
+    if(m_numOfItems==MAX_ITEMS)
         return false;
     
     //empty set, element can be inserted
@@ -197,7 +197,7 @@ bool Set::erase(const ItemType& value)
 }
 
 // Return true if the value is in the set, otherwise false.
-bool Set::contains(const ItemType& value)
+bool Set::contains(const ItemType& value) const
 {
     if(empty())
         return false;
@@ -238,24 +238,29 @@ bool Set::get(int i, ItemType& value) const
 // Exchange the contents of this set with the other one.
 void Set::swap(Set& other)
 {
-    for(int i=0;i<m_numOfItems||i<other.m_numOfItems;i++)
-    {
-        ItemType temp=m_set[i];
-        m_set[i]=other.m_set[i];
-        other.m_set[i]=temp;
-    }
+    //swap the pointer pointing to the start of the array
+    ItemType* p=m_set;
+    m_set=other.m_set;
+    other.m_set=p;
+    
+    //swap the numbers of items
     int temp=m_numOfItems;
     m_numOfItems=other.m_numOfItems;
     other.m_numOfItems=temp;
     
+    //swap the capacity of the two sets
+    temp=MAX_ITEMS;
+    MAX_ITEMS=other.MAX_ITEMS;
+    other.MAX_ITEMS=temp;
     
 }
+
 
 bool Set::move(int i,bool moveForward)
 {
     if(moveForward)
     {
-        if(m_numOfItems==DEFAULT_MAX_ITEMS)
+        if(m_numOfItems==MAX_ITEMS)
         {
             return false;
         }
@@ -286,3 +291,4 @@ bool Set::move(int i,bool moveForward)
     }
     
 }
+

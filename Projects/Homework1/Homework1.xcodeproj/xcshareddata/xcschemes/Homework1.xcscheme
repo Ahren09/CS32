@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9CC93EC121F2D1DE00A2914B"
-               BuildableName = "SSNSet"
-               BlueprintName = "SSNSet"
+               BlueprintIdentifier = "9CE9611321F39437007EF095"
+               BuildableName = "Homework1"
+               BlueprintName = "Homework1"
                ReferencedContainer = "container:Homework1.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9CC93EC121F2D1DE00A2914B"
-            BuildableName = "SSNSet"
-            BlueprintName = "SSNSet"
+            BlueprintIdentifier = "9CE9611321F39437007EF095"
+            BuildableName = "Homework1"
+            BlueprintName = "Homework1"
             ReferencedContainer = "container:Homework1.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -55,9 +55,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9CC93EC121F2D1DE00A2914B"
-            BuildableName = "SSNSet"
-            BlueprintName = "SSNSet"
+            BlueprintIdentifier = "9CE9611321F39437007EF095"
+            BuildableName = "Homework1"
+            BlueprintName = "Homework1"
             ReferencedContainer = "container:Homework1.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -74,9 +74,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9CC93EC121F2D1DE00A2914B"
-            BuildableName = "SSNSet"
-            BlueprintName = "SSNSet"
+            BlueprintIdentifier = "9CE9611321F39437007EF095"
+            BuildableName = "Homework1"
+            BlueprintName = "Homework1"
             ReferencedContainer = "container:Homework1.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
