@@ -5,7 +5,7 @@
 using namespace std;
 
 /*
-  write a function the takes in two strings
+  write a function that takes in two strings
   and returns a bool  
     true if the strings are equal to one another
      (have the same characters in any order)
