@@ -1,6 +1,8 @@
 #include <queue>
+#include <iostream>
+#include <stdio.h>
 #include <string>
-//#include <iostream>
+
 using namespace std;
 
 class Coord
@@ -28,8 +30,9 @@ bool pathExists(string maze[], int nRows, int nCols, int sr, int sc, int er, int
         int c=cur.c();
         //Mark current position as "Visited" - '@'
         maze[r][c]='@';
+        cerr<<"("<<r<<','<<c<<")"<<endl;
         
-        //If current coordinates equal the destination, then we reach the end.
+        //If current coordinates equal the destination, the result is found.
         if(r == er && c == ec)
             return true;
         
@@ -56,4 +59,26 @@ bool pathExists(string maze[], int nRows, int nCols, int sr, int sc, int er, int
         }
     }
     return false;
+}
+
+
+int main()
+{
+    string maze[10] = {
+        "XXXXXXXXXX",
+        "X....X...X",
+        "X.XX.XX..X",
+        "XXX....X.X",
+        "X.XXX.XXXX",
+        "X.X...X..X",
+        "X...X.X..X",
+        "XXXXX.X.XX",
+        "X........X",
+        "XXXXXXXXXX"
+    };
+    
+    if (pathExists(maze, 10,10, 3,5, 8,8))
+        cout << "Solvable!" << endl;
+    else
+        cout << "Out of luck!" << endl;
 }
