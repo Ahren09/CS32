@@ -1,17 +1,23 @@
-#ifndef Set_h
-#define Set_h
+// Set.h
+
+#ifndef SET_INCLUDED
+#define SET_INCLUDED
 
 #include <string>
-using ItemType=std::string;
+
+// Later in the course, we'll see that templates provide a much nicer
+// way of enabling us to have Sets of different types.  For now,
+// we'll use a type alias.
+
+using ItemType = std::string;
+
 const int DEFAULT_MAX_ITEMS = 250;
 
 class Set
 {
 public:
-    Set();         // Create an empty set (i.e., one with no items).
-    
+    Set();               // Create an empty set (i.e., one with no items).
     bool empty() const;  // Return true if the set is empty, otherwise false.
-    
     int size() const;    // Return the number of items in the set.
     
     bool insert(const ItemType& value);
@@ -38,9 +44,36 @@ public:
     // Exchange the contents of this set with the other one.
     
 private:
-    ItemType m_set[DEFAULT_MAX_ITEMS];
-    int m_numOfItems;
-    bool move(int i, bool moveForward);
+    ItemType m_data[DEFAULT_MAX_ITEMS];  // the items in the set
+    int      m_size;                     // number of items in the set
+    
+    // At any time, the elements of m_data indexed from 0 to m_size-1
+    // are in use and are stored in increasing order.
+    
+    int findFirstAtLeast(const ItemType& value) const;
+    // Return the position of the smallest item in m_data that is >= value,
+    // or m_size if there are no such items.
 };
 
-#endif /* Set_h */
+// Inline implementations
+
+inline
+int Set::size() const
+{
+    return m_size;
+}
+
+inline
+bool Set::empty() const
+{
+    return size() == 0;
+}
+
+inline
+bool Set::contains(const ItemType& value) const
+{
+    int pos = findFirstAtLeast(value);
+    return pos < m_size  &&  m_data[pos] == value;
+}
+
+#endif // SET_INCLUDED

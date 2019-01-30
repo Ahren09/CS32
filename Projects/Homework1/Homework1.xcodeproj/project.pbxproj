@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C90A74721F918C700406AF7 /* testSSNSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C90A74221F918C700406AF7 /* testSSNSet.cpp */; };
+		9C90A74821F918C700406AF7 /* testSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C90A74321F918C700406AF7 /* testSet.cpp */; };
+		9C90A74921F918C700406AF7 /* Set.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C90A74421F918C700406AF7 /* Set.cpp */; };
+		9C90A74A21F918C700406AF7 /* SSNSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C90A74521F918C700406AF7 /* SSNSet.cpp */; };
 		9CE9616921F3A30E007EF095 /* newSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE9616621F3A30E007EF095 /* newSet.cpp */; };
 		9CE9616A21F3A30E007EF095 /* testnewSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CE9616821F3A30E007EF095 /* testnewSet.cpp */; };
 /* End PBXBuildFile section */
@@ -51,10 +55,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9CE9611421F39437007EF095 /* Homework1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = Homework1; path = /Users/jinyiqiao/Desktop/Git/CS32/Projects/Homework1/build/Debug/Homework1; sourceTree = "<absolute>"; };
-		9CE9612C21F39AF3007EF095 /* newSet */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = newSet; path = /Users/jinyiqiao/Desktop/Git/CS32/Projects/Homework1/build/Debug/newSet; sourceTree = "<absolute>"; };
-		9CE9614F21F3A038007EF095 /* Set */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = Set; path = /Users/jinyiqiao/Desktop/Git/CS32/Projects/Homework1/build/Debug/Set; sourceTree = "<absolute>"; };
-		9CE9615A21F3A044007EF095 /* SSNSet */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = SSNSet; path = /Users/jinyiqiao/Desktop/Git/CS32/Projects/Homework1/build/Debug/SSNSet; sourceTree = "<absolute>"; };
+		9C90A72121F915FE00406AF7 /* Homework1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = Homework1; path = /Users/jinyiqiao/Desktop/Git/CS32/Projects/Homework1/build/Debug/Homework1; sourceTree = "<absolute>"; };
+		9C90A72221F915FE00406AF7 /* newSet */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = newSet; path = /Users/jinyiqiao/Desktop/Git/CS32/Projects/Homework1/build/Debug/newSet; sourceTree = "<absolute>"; };
+		9C90A72321F915FE00406AF7 /* Set */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = Set; path = /Users/jinyiqiao/Desktop/Git/CS32/Projects/Homework1/build/Debug/Set; sourceTree = "<absolute>"; };
+		9C90A72421F915FE00406AF7 /* SSNSet */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = SSNSet; path = /Users/jinyiqiao/Desktop/Git/CS32/Projects/Homework1/build/Debug/SSNSet; sourceTree = "<absolute>"; };
+		9C90A74121F918C700406AF7 /* SSNSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSNSet.h; sourceTree = "<group>"; };
+		9C90A74221F918C700406AF7 /* testSSNSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testSSNSet.cpp; sourceTree = "<group>"; };
+		9C90A74321F918C700406AF7 /* testSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testSet.cpp; sourceTree = "<group>"; };
+		9C90A74421F918C700406AF7 /* Set.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Set.cpp; sourceTree = "<group>"; };
+		9C90A74521F918C700406AF7 /* SSNSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SSNSet.cpp; sourceTree = "<group>"; };
+		9C90A74621F918C700406AF7 /* Set.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Set.h; sourceTree = "<group>"; };
 		9CE9616621F3A30E007EF095 /* newSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = newSet.cpp; sourceTree = "<group>"; };
 		9CE9616721F3A30E007EF095 /* newSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = newSet.h; sourceTree = "<group>"; };
 		9CE9616821F3A30E007EF095 /* testnewSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testnewSet.cpp; sourceTree = "<group>"; };
@@ -95,8 +105,14 @@
 		9CE9610B21F39437007EF095 = {
 			isa = PBXGroup;
 			children = (
-				9CE9616621F3A30E007EF095 /* newSet.cpp */,
+				9C90A74621F918C700406AF7 /* Set.h */,
+				9C90A74421F918C700406AF7 /* Set.cpp */,
+				9C90A74321F918C700406AF7 /* testSet.cpp */,
+				9C90A74121F918C700406AF7 /* SSNSet.h */,
+				9C90A74521F918C700406AF7 /* SSNSet.cpp */,
+				9C90A74221F918C700406AF7 /* testSSNSet.cpp */,
 				9CE9616721F3A30E007EF095 /* newSet.h */,
+				9CE9616621F3A30E007EF095 /* newSet.cpp */,
 				9CE9616821F3A30E007EF095 /* testnewSet.cpp */,
 			);
 			sourceTree = "<group>";
@@ -118,7 +134,7 @@
 			);
 			name = Homework1;
 			productName = Homework1;
-			productReference = 9CE9611421F39437007EF095 /* Homework1 */;
+			productReference = 9C90A72121F915FE00406AF7 /* Homework1 */;
 			productType = "com.apple.product-type.tool";
 		};
 		9CE9612B21F39AF3007EF095 /* newSet */ = {
@@ -135,7 +151,7 @@
 			);
 			name = newSet;
 			productName = newSet;
-			productReference = 9CE9612C21F39AF3007EF095 /* newSet */;
+			productReference = 9C90A72221F915FE00406AF7 /* newSet */;
 			productType = "com.apple.product-type.tool";
 		};
 		9CE9614E21F3A038007EF095 /* Set */ = {
@@ -152,7 +168,7 @@
 			);
 			name = Set;
 			productName = Set;
-			productReference = 9CE9614F21F3A038007EF095 /* Set */;
+			productReference = 9C90A72321F915FE00406AF7 /* Set */;
 			productType = "com.apple.product-type.tool";
 		};
 		9CE9615921F3A044007EF095 /* SSNSet */ = {
@@ -169,7 +185,7 @@
 			);
 			name = SSNSet;
 			productName = SSNSet;
-			productReference = 9CE9615A21F3A044007EF095 /* SSNSet */;
+			productReference = 9C90A72421F915FE00406AF7 /* SSNSet */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -220,8 +236,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C90A74921F918C700406AF7 /* Set.cpp in Sources */,
+				9C90A74821F918C700406AF7 /* testSet.cpp in Sources */,
 				9CE9616921F3A30E007EF095 /* newSet.cpp in Sources */,
 				9CE9616A21F3A30E007EF095 /* testnewSet.cpp in Sources */,
+				9C90A74721F918C700406AF7 /* testSSNSet.cpp in Sources */,
+				9C90A74A21F918C700406AF7 /* SSNSet.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -31,6 +31,7 @@ Set::Set(const Set& src)
 
 Set& Set::operator=(const Set& src)
 {
+    //if(src==*this) return *this;
     delete [] m_set;
     MAX_ITEMS=src.MAX_ITEMS;
     m_set=new ItemType[MAX_ITEMS];

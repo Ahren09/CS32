@@ -1,0 +1,257 @@
+###########
+IMPLEMENTATION OF SET
+
+###########
+//Set()
+Set size of the Set to 0
+Set head and tail pointer to nullptr
+
+
+##########
+//~Set()
+WHILE head pointer is not nullptr
+	let head point to the next Node
+	delete the previous node
+
+
+##########
+//Set(const Set& other) //Copy Constructor
+IF the other list is empty
+   set its head and tail pointer to nullptr
+ELSE
+   Initialize head node and the pre pointer of first node	
+   WHILE NOT reaching the last node
+   	INITIALIZE new nodes and connect it with current node
+   Initialize tail node and the next pointer of last node
+
+##########
+//Set& operator=(const Set& other) //Assignment Operator
+IF applying to the current Set itself
+   RETURN current Set
+ELSE
+   DELETE current Set
+   Initialize each Node according to Nodes in "other" set
+
+##########
+*** SOME NOTIFICATIONS ***
+When we want to insert a Node at the beginning of the list, we must treat these two conditions differently:
+1.Empty list
+2.None empty list
+Since with only one node after insertion, only the tail pointer contains Node* pre pointing to the inserted Node
+
+###########
+//insert()
+Create two pointer, with first Node pointing to head Node and second as nullptr
+       WHILE first Node is valid
+       	     IF its value equals target value
+	     	RETURN FALSE
+       	     ELSE IF its value is greater than target value
+       	        BREAK
+
+       INITIALIZE the Node and assign its pre & next pointer
+       
+       Connect it to head pointer OR tail pointer OR pointer before and after depending on its location in the list
+	      
+
+###########
+//erase()
+IF the linked list is empty
+	RETURN FALSE;
+ELSE IF value is out of bound
+     	RETURN FALSE
+Starting from head pointer, KEEP moving forward until finding a Node with value not smaller than target Node
+
+IF the Node has value greater than target value
+       RETURN FALSE
+ELSE
+       DELETE the Node
+       Connect previous Node and next Node
+       DECREASE size by 1
+
+###########
+//contains(const ItemType& value) const
+IF the linked list is empty
+	RETURN FALSE
+IF element is either smaller than the first element OR larger than the last element
+	RETURN FALSE
+
+REPEATEDLY:
+	WHILE each value of Nodes is smaller than the value we search for
+		Keep traverse through the linked list		
+	IF val of current Node is equal to target value
+		RETURN TRUE
+ 	ELSE IF val of current Node is greater than target value
+		RETURN FALSE
+
+###########
+//get()
+
+IF list is empty
+   RETURN FALSE
+Starting from head, traverse through the list until finding the i-th Node 
+   IF reaching end of list
+      RETURN FALSE
+   set "value" to the current node
+      RETURN TRUE
+
+		
+###########
+//swap()
+
+swap head nodes and tail nodes of the two lists
+swap sizes of the two lists
+
+
+###########
+GLOBAL FUNCTIONS
+
+###########
+//void unite()
+
+copy s1 to result
+insert each element of s2 to result
+
+
+###########
+//void subtract()
+
+copy s1	to result
+erase each element of s2 from result
+
+
+###########
+TEST CASES
+
+###########
+//test2() tests the copy constructor, assignment operator, unite() and subtract()
+//test1() tests the rest of functions
+
+void test1()
+{
+    Set s;
+    
+    assert(s.empty());
+    ItemType x = "arepa";
+    
+    //Test empty()
+    assert( !s.get(42, x)  &&  x == "arepa" && s.empty()); // x unchanged since get() fails
+    
+    //Test insert() and size()
+    s.insert("chapati");
+    assert(s.size() == 1);
+    assert(s.get(0, x)  &&  x == "chapati");
+    s.insert("luzhu");
+    s.insert("chaogan");
+    s.insert("luzhu");          //Duplicate should not be inserted
+    s.insert("guanchang");
+    assert(s.size() == 4);
+    //Test get()
+    assert(s.get(0,x) && x=="chaogan");
+    assert(s.get(3,x) && x=="luzhu");
+    
+    //Test swap()
+    Set s1;
+    s1.insert("roti");
+    s1.insert("matzo");
+    s1.insert("roti");
+    s1.swap(s);
+    
+    
+    //Test contains()
+    ItemType y;
+    assert(s.size()==2 && s.get(0,x) && x=="matzo" && s1.size()==4
+           && s1.get(0,y) && y=="chaogan" && s1.get(3,y) && y=="luzhu");
+    assert(s1.contains("guanchang") && s.contains("matzo"));
+    
+    //Test erase()
+    //Erase elements at the beginning
+    assert(s1.erase("chaogan"));
+    assert(s1.size()==3);
+    assert(s1.get(0,x) && x=="chapati");
+    
+    //Erase elements in the middle
+    assert(s1.erase("guanchang") && !s1.contains("guanchang"));
+    assert(s1.erase("luzhu") && !s1.contains("luzhu"));
+    
+    //Erase non-existent element
+    //NOTICE: size should NOT be changed
+    assert(!s1.erase("Luzhu") && s1.size()==1);
+    
+    //Inserting empty string
+    //Test that "" is a valid variable of ItemType
+    assert(!s1.contains(""));
+    s1.insert("");
+    assert(s1.contains("") && s1.size()==2);
+    assert(s1.insert("hotpot"));
+    
+    //Test the copy constructor
+    Set s2(s1);
+    assert(s2.size()==3 && s2.get(0,x) && x=="");
+    
+    //Test the assignment operator;
+    Set s3=s1;
+    assert(s1.size()==3 && !s1.get(3,x));
+}
+
+void test2()
+{
+    Set a;
+    a.insert("a_first");
+    a.insert("b_second");
+    a.insert("c_third");
+    a.insert("d_fourth");
+    Set b;
+    b.insert("c_third");
+    b.insert("d_fourth");
+    b.insert("e_fifth");
+    
+    //test unite()
+    Set c;
+    unite(a,b,c);
+    assert(c.size()==5 && c.contains("e_fifth") && c.contains("d_fourth")
+           && c.contains("b_second"));
+    
+    //test subtract()
+    Set d;
+    subtract(a,b,d);
+    assert(d.size()==2 && !d.contains("d_fourth") && d.contains("b_second"));
+    
+    //e is an empty set, so d should be empty
+    Set e;
+    Set f;
+    f.insert("f_sixth");
+    subtract(e, a, f);
+    assert(e.size()==0 && f.size()==0);
+    subtract(e, a, d);
+    
+    //Now d is empty, e should be equal to a
+    subtract(a,d,e);
+    assert(e.size()==4 && e.contains("a_first") && e.contains("b_second") &&
+           e.contains("c_third") && e.contains("d_fourth"));
+    
+    //a equals b, then a subtract b is empty Set
+    subtract(a, e, d);
+    assert(d.empty());
+    
+    Set ss;
+    ss.insert("ccc");
+    ss.insert("aaa");
+    ss.insert("bbb");
+    ItemType x = "abc";
+    assert(!ss.get(3, x)  &&  x == "abc");  // x is unchanged
+    assert(ss.get(1, x)  &&  x == "bbb");
+    // exactly 1 item
+    Set ss2;
+    ss2.insert("nothing");
+    ss2=ss;
+    assert(ss2.size()==3);
+    
+    
+}
+
+int main()
+{
+    test1();
+    test2();
+    std::cout << "Passed all tests" << std::endl;
+}

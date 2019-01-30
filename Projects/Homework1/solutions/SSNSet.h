@@ -1,46 +1,50 @@
-#ifndef Set_h
-#define Set_h
+// SSNSet.h
 
-#include <string>
-using ItemType=std::string;
-const int DEFAULT_MAX_ITEMS = 250;
+#ifndef SSNSET_INCLUDED
+#define SSNSET_INCLUDED
 
-class Set
+#include "Set.h"  // ItemType is a type alias for unsigned long
+
+class SSNSet
 {
 public:
-    Set();         // Create an empty set (i.e., one with no items).
+    SSNSet();          // Create an empty SSNSet
     
-    bool empty() const;  // Return true if the set is empty, otherwise false.
+    bool add(unsigned long ssn);
+    // Add an SSN to the SSNSet.  Return true if and only if the SSN
+    // was actually added.
     
-    int size() const;    // Return the number of items in the set.
+    int size() const;  // Return the number of SSNs in the SSNSet.
     
-    bool insert(const ItemType& value);
-    // Insert value into the set if it is not already present.  Return
-    // true if the value was actually inserted.  Leave the set unchanged
-    // and return false if the value was not inserted (perhaps because it
-    // was already in the set or because the set has a fixed capacity and
-    // is full).
-    
-    bool erase(const ItemType& value);
-    // Remove the value from the set if present.  Return true if the
-    // value was removed; otherwise, leave the set unchanged and
-    // return false.
-    
-    bool contains(const ItemType& value) const;
-    // Return true if the value is in the set, otherwise false.
-    
-    bool get(int i, ItemType& value) const;
-    // If 0 <= i < size(), copy into value the item in the set that is
-    // strictly greater than exactly i items in the set and return true.
-    // Otherwise, leave value unchanged and return false.
-    
-    void swap(Set& other);
-    // Exchange the contents of this set with the other one.
+    void print() const;
+    // Write every SSN in the SSNSet to cout exactly once, one per
+    // line.  Write no other text.
     
 private:
-    ItemType m_set[DEFAULT_MAX_ITEMS];
-    int m_numOfItems;
-    bool move(int i, bool moveForward);
+    Set m_SSNs;
 };
 
-#endif /* Set_h */
+// Inline implementations
+
+// Actually, we did not have to declare and implement the default
+// constructor:  If we declare no constructors whatsoever, the compiler
+// writes a default constructor for us that would do nothing more than
+// default construct the m_SSNs data member.
+
+inline
+SSNSet::SSNSet()
+{}
+
+inline
+bool SSNSet::add(unsigned long ssn)
+{
+    return m_SSNs.insert(ssn);
+}
+
+inline
+int SSNSet::size() const
+{
+    return m_SSNs.size();
+}
+
+#endif // SSNSET_INCLUDED

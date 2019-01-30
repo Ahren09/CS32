@@ -1,21 +1,14 @@
-#include "newSet.h"
-#include <iostream>
-#include <cstdlib>
+// Set.cpp
 
-Set::Set(int capacity)
-: m_size(0), m_capacity(capacity)
-{
-    if (capacity < 0)
-    {
-        std::cout << "A Set capacity must not be negative." << std::endl;
-        std::exit(1);
-    }
-    m_data = new ItemType[m_capacity];
-}
+#include "Set.h"
+
+Set::Set()
+: m_size(0)
+{}
 
 bool Set::insert(const ItemType& value)
 {
-    if (m_size == m_capacity)
+    if (m_size == DEFAULT_MAX_ITEMS)
         return false;
     int pos = findFirstAtLeast(value);
     if (pos < m_size  &&  m_data[pos] == value)
@@ -48,50 +41,32 @@ bool Set::get(int i, ItemType& value) const
 
 void Set::swap(Set& other)
 {
-    // Swap pointers to the elements.
+    // Swap elements.  Since the only elements that matter are those up to
+    // m_size and other.m_size, only they have to be moved.
     
-    ItemType* tempData = m_data;
-    m_data = other.m_data;
-    other.m_data = tempData;
+    int minSize = (m_size < other.m_size ? m_size : other.m_size);
+    for (int k = 0; k < minSize; k++)
+    {
+        ItemType tempItem = m_data[k];
+        m_data[k] = other.m_data[k];
+        other.m_data[k] = tempItem;
+    }
+    
+    // If the sizes are different, assign the remaining elements from the
+    // longer one to the shorter.
+    
+    if (m_size > minSize)
+        for (int k = minSize; k < m_size; k++)
+            other.m_data[k] = m_data[k];
+    else if (other.m_size > minSize)
+        for (int k = minSize; k < other.m_size; k++)
+            m_data[k] = other.m_data[k];
     
     // Swap sizes
     
     int tempSize = m_size;
     m_size = other.m_size;
     other.m_size = tempSize;
-    
-    // Swap capacities
-    
-    int tempCapacity = m_capacity;
-    m_capacity = other.m_capacity;
-    other.m_capacity = tempCapacity;
-}
-
-Set::~Set()
-{
-    delete [] m_data;
-}
-
-Set::Set(const Set& other)
-: m_size(other.m_size), m_capacity(other.m_capacity)
-{
-    m_data = new ItemType[m_capacity];
-    
-    // Since the only elements that matter are those up to m_size, only
-    // they have to be copied.
-    
-    for (int k = 0; k < m_size; k++)
-        m_data[k] = other.m_data[k];
-}
-
-Set& Set::operator=(const Set& rhs)
-{
-    if (this != &rhs)
-    {
-        Set temp(rhs);
-        swap(temp);
-    }
-    return *this;
 }
 
 int Set::findFirstAtLeast(const ItemType& value) const
