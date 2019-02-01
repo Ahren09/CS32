@@ -249,7 +249,7 @@ void Set::swap(Set& other)
 
 void unite(const Set& s1, const Set& s2, Set& result)
 {
-    result=s1;
+    result=s1; //if two sets are the same, return one of them
     if(!s2.empty()){
     int i=0;
     ItemType n;
