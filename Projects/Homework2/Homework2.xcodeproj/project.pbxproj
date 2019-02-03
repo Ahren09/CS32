@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C4CF54022014C2500403776 /* mazeStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C4CF53E22014C2400403776 /* mazeStack.cpp */; };
-		9C4CF54122014C2500403776 /* mazeQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C4CF53F22014C2500403776 /* mazeQueue.cpp */; };
 		9C4CF543220174AD00403776 /* eval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C4CF542220174AD00403776 /* eval.cpp */; };
-		9CC713AB2201198100B42813 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CC713AA2201198100B42813 /* main.cpp */; };
+		9CC90C64220642AC00E3A293 /* Set.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CC90C63220642AC00E3A293 /* Set.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,11 +24,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9C4CF53E22014C2400403776 /* mazeStack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mazeStack.cpp; sourceTree = "<group>"; };
-		9C4CF53F22014C2500403776 /* mazeQueue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mazeQueue.cpp; sourceTree = "<group>"; };
 		9C4CF542220174AD00403776 /* eval.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = eval.cpp; sourceTree = "<group>"; };
 		9CC713A02201191900B42813 /* Homework2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Homework2; sourceTree = BUILT_PRODUCTS_DIR; };
-		9CC713AA2201198100B42813 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		9CC90C62220642AC00E3A293 /* Set.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Set.h; sourceTree = "<group>"; };
+		9CC90C63220642AC00E3A293 /* Set.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Set.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,10 +44,9 @@
 		9CC713972201191900B42813 = {
 			isa = PBXGroup;
 			children = (
-				9CC713AA2201198100B42813 /* main.cpp */,
-				9C4CF53F22014C2500403776 /* mazeQueue.cpp */,
-				9C4CF53E22014C2400403776 /* mazeStack.cpp */,
 				9C4CF542220174AD00403776 /* eval.cpp */,
+				9CC90C63220642AC00E3A293 /* Set.cpp */,
+				9CC90C62220642AC00E3A293 /* Set.h */,
 				9CC713A12201191900B42813 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,10 +115,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C4CF54122014C2500403776 /* mazeQueue.cpp in Sources */,
+				9CC90C64220642AC00E3A293 /* Set.cpp in Sources */,
 				9C4CF543220174AD00403776 /* eval.cpp in Sources */,
-				9CC713AB2201198100B42813 /* main.cpp in Sources */,
-				9C4CF54022014C2500403776 /* mazeStack.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
