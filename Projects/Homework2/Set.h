@@ -9,7 +9,7 @@
 // way of enabling us to have Sets of different types.  For now,
 // we'll use a type alias.
 
-using ItemType = char;
+typedef char ItemType;
 
 class Set
 {
