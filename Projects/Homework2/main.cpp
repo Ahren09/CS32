@@ -1,7 +1,8 @@
-#include <queue>
+#include <stack>
 #include <iostream>
 #include <stdio.h>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -18,21 +19,21 @@ private:
 
 bool pathExists(string maze[], int nRows, int nCols, int sr, int sc, int er, int ec)
 {
-    queue<Coord> q;
+    stack<Coord> s;
     Coord start(sr,sc);
     
-    q.push(start);
-    while(!q.empty())
+    s.push(start);
+    while(!s.empty())
     {
-        Coord cur=q.front();
-        q.pop();
+        Coord cur=s.top();
+        s.pop();
         int r=cur.r();
         int c=cur.c();
+        cerr<<"("<<r<<','<<c<<")"<<endl;
         //Mark current position as "Visited" - '@'
         maze[r][c]='@';
-        cerr<<"("<<r<<','<<c<<")"<<endl;
         
-        //If current coordinates equal the destination, the result is found.
+        //If current coordinates equal the destination, then we reach the end.
         if(r == er && c == ec)
             return true;
         
@@ -40,27 +41,26 @@ bool pathExists(string maze[], int nRows, int nCols, int sr, int sc, int er, int
         if(maze[r+1][c] == '.')
         {
             Coord south(r+1,c);
-            q.push(south);
+            s.push(south);
         }
         if(maze[r][c-1] == '.')
         {
             Coord west(r,c-1);
-            q.push(west);
+            s.push(west);
         }
         if(maze[r-1][c] == '.')
         {
             Coord north(r-1,c);
-            q.push(north);
+            s.push(north);
         }
         if(maze[r][c+1] == '.')
         {
             Coord east(r,c+1);
-            q.push(east);
+            s.push(east);
         }
     }
     return false;
 }
-
 
 int main()
 {
