@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C24DE93220AB34D004470A1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C24DE92220AB34D004470A1 /* main.cpp */; };
+		9CC07FE3220F793100C134ED /* landmark.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CC07FE2220F793100C134ED /* landmark.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +23,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9C24DE8F220AB34D004470A1 /* Homework3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Homework3; sourceTree = BUILT_PRODUCTS_DIR; };
-		9C24DE92220AB34D004470A1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		9C24DEA8220D2842004470A1 /* Homework3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Homework3; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CC07FE2220F793100C134ED /* landmark.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = landmark.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,25 +41,9 @@
 		9C24DE86220AB34D004470A1 = {
 			isa = PBXGroup;
 			children = (
-				9C24DE91220AB34D004470A1 /* Homework3 */,
-				9C24DE90220AB34D004470A1 /* Products */,
+				9C24DEA8220D2842004470A1 /* Homework3 */,
+				9CC07FE2220F793100C134ED /* landmark.cpp */,
 			);
-			sourceTree = "<group>";
-		};
-		9C24DE90220AB34D004470A1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9C24DE8F220AB34D004470A1 /* Homework3 */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		9C24DE91220AB34D004470A1 /* Homework3 */ = {
-			isa = PBXGroup;
-			children = (
-				9C24DE92220AB34D004470A1 /* main.cpp */,
-			);
-			path = Homework3;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -79,7 +63,7 @@
 			);
 			name = Homework3;
 			productName = Homework3;
-			productReference = 9C24DE8F220AB34D004470A1 /* Homework3 */;
+			productReference = 9C24DEA8220D2842004470A1 /* Homework3 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -104,7 +88,7 @@
 				en,
 			);
 			mainGroup = 9C24DE86220AB34D004470A1;
-			productRefGroup = 9C24DE90220AB34D004470A1 /* Products */;
+			productRefGroup = 9C24DE86220AB34D004470A1;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -118,7 +102,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C24DE93220AB34D004470A1 /* main.cpp in Sources */,
+				9CC07FE3220F793100C134ED /* landmark.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,11 +8,13 @@ class Landmark
     
 public:
     Landmark(string name)
+    :m_name(name){}
+    virtual ~Landmark(){}; //Even if the destructor has no implementation, we MUST STILL KEEP THE EMPTY BRACKET
+    
+    virtual string color() const
     {
-        m_name=name;
+        return "yellow";
     }
-    virtual ~Landmark();
-    virtual string color() const=0;
     virtual string icon() const=0;
     string name() const
     {
@@ -27,12 +29,14 @@ class Hotel:public Landmark
 public:
     Hotel(string name)
     :Landmark(name){}
-    virtual ~Hotel();
     
-    virtual string color() const
+    virtual ~Hotel()
     {
-        return "yellow";
+        cout<<"Destroying the hotel "<<name()<<"."<<endl;
     }
+    
+//    virtual string color() const
+//    {return "yellow";}
     virtual string icon() const
     {
         return "bed";
@@ -48,12 +52,13 @@ public:
         m_cap=cap;
     }
     
-    virtual ~Restaurant();
-    
-    virtual string color() const
+    virtual ~Restaurant()
     {
-        return "yellow";
+        cout<<"Destroying the restaurant "<<name()<<"."<<endl;
     }
+    
+    //    virtual string color() const
+    //    {return "yellow";}
     virtual string icon() const
     {
         return (m_cap<40) ? "small knife/fork" : "large knife/fork";
@@ -70,12 +75,13 @@ public:
     :Landmark(name)
     {}
     
-    virtual ~Hospital();
+    virtual ~Hospital()
+    {
+        cout<<"Destroying the hospital "<<name()<<"."<<endl;
+    }
     
     virtual string color() const
-    {
-        return "blue";
-    }
+    {return "blue";}
     virtual string icon() const
     {
         return "H";
