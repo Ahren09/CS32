@@ -1,0 +1,38 @@
+2.
+The insert function of Set calls findFirstAtLeast(), which requires an '<' or '>' defined in Coord class so that all Coord objects inserted into the Set are unique. However, the operator is not defined.
+
+The line in findFirstAtLeast():
+p->m_value == value
+will cause an error.
+
+3.
+The reason is that each MenuItem has a name that we need to print out. However, some MenuItem are nullptr's which cannot be traversed through an iterator. We need a wrapper function to test whether the current MenuItem pointer is a nullptr.
+
+4.
+a) O(N^3)
+There are 3 nested loop iterated by (i,j,k). Each loop runs N times.
+
+b) O(N^3)
+Because we do not reduce the number of nested loop. Instead, we simply reduce the computation by half. Eliminating the factor of number of iterations, Big-O is still O(N^3).
+
+5.
+(a)
+Worst case is O(N^2) in which set1 and set2 contain completely different elements and all elements in set2 are greater than those in set1
+In the last for-loop:
+
+get(k,v) has Time complexity of O(N).
+insert(v) calls findFirstAtLeast(), which has Time Complexity of O(N) and traverses through the entire array under the worst case. insert(v) also calls insertBefore(), which has O(1).
+
+Since the last for-loop	has N iterations and calls the two functions during each iteration, the Big-O is O(N).
+
+(b)
+Time complexity is O(N log(N))
+The two for-loop that insert values of set1 and set2 into v both have O(N).
+sort() has O(N log(N)). doErase() is O(1), and is called within a loop with N elements, thus has O(N) with N iterations. insertBefore(), which has O(1), is called in a
+loop that iterate through all 2N items of v. Overall, time complexity is O(N log(N)).
+
+(c)
+Time complexity is O(N)
+The while loop merely traverse through set1 and set2 linearly. Since each element is visited, the function has Big-O of O(N). The assignment operator such as "*this=set1" merely calls the swap() function, which has O(1).
+
+

@@ -1,0 +1,84 @@
+1.a		50
+	       /  \
+	     20    60
+	    / \	     \
+	  10   40     70
+	   \   /      / \
+	   15 30     65	 80
+	      /\         /		
+	    25 38 	72
+
+1.b
+Pre-order:
+50 20 10 15 40 30 25 38 60 70 65 80 72
+
+In-order:
+10 15 20 25 30 38 40 50 60 65 70 72 80
+
+Post-order:
+15 10 25 38 30 40 20 65 72 80 70 60 50
+
+1.c             50
+               /  \
+             25    60
+            / \      \
+          10   40     70
+           \   /      / \
+           15 38     65  80
+                         /
+                        72
+
+2.a.
+struct TreeNode {
+    int val;
+    TreeNode *left, *right, *parent;
+    TreeNode(int value):val(value),parent(nullptr),left(nullptr),right(nullptr){}
+};
+
+2.b
+PSEUDOCODE:
+
+insertIntoBST():
+IF the tree is empty
+   create a new TreeNode and RETURN
+IF inserted value is smaller than value of root node
+   Initiallize a TreeNode pointer and call this function on it
+   Set the pointer's parent node pointing to root node 
+   Set the root node's left node to the pointer
+ELSE IF inserted value is greater than value of root node
+   Initiallize a TreeNode pointer and call this function on it
+   Set the pointer's parent node pointing to root node
+   Set the root	node's right node to the pointer
+   
+RETURN the root node  
+
+I also write the implementation:
+
+TreeNode* insertIntoBST(TreeNode* root, int val) {
+     if(root==nullptr)
+         return new TreeNode(val);
+     if(val<root->val)
+     {
+         TreeNode* l=insertIntoBST(root->left, val);
+         root->left=l;
+         l->parent=root;
+     }
+     else if(val>root->val)
+     {
+         TreeNode* r=insertIntoBST(root->right, val);
+         root->right=r;
+         r->parent=root;
+     } 
+     return root;
+}
+
+4.
+a. O(C*log(S))
+b. O(C*S)
+c. O(log(N)*log(S))
+d. 
+O(log(S)) with an efficient hash function
+Up to O(N*log(S)) with an inefficient hash function(for which the unordered_map is 
+almost a linked-list)
+
+e

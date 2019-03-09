@@ -1,0 +1,8 @@
+2.
+The Coord class have not defined a comparison operator such as '<' or '>'. However, the insert function of Set requires such an operator since all elements in the Set are unique, they need to be compared with other elements before insertion.
+
+The line:
+p->m_value == value
+will cause an error.
+
+3.
