@@ -73,12 +73,25 @@ TreeNode* insertIntoBST(TreeNode* root, int val) {
 }
 
 4.
-a. O(C*log(S))
-b. O(C*S)
-c. O(log(N)*log(S))
+a. O(C+log(S))
+
+b. O(log(C)+S)
+
+c. O(log(C)+log(S))
+
 d. 
 O(log(S)) with an efficient hash function
-Up to O(N*log(S)) with an inefficient hash function(for which the unordered_map is 
-almost a linked-list)
+Up to O(C*log(S)) in worst case,for which the unordered_map is almost a linked-list
 
-e
+e.
+O(1) on average (with reasonably arranged unordered_set and unordered_map
+O(C*S) in worst case
+
+f.
+O(log(C)+S)
+
+g.
+O(S*log(S))
+
+h.
+O(C*log(S))
